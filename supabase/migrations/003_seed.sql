@@ -1,0 +1,2 @@
+-- Seed: run after migrations for local demo (replace user id with a real auth.users id)
+-- insert into public.profiles (id, full_name) values ('00000000-0000-0000-0000-000000000000','Demo Student');

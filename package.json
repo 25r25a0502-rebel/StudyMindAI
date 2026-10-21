@@ -1,0 +1,14 @@
+{
+  "name": "studymind-ai",
+  "private": true,
+  "version": "1.0.0",
+  "description": "StudyMind AI - AI-Powered Platform for Intelligent Document Understanding",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev:server": "npm --workspace server run dev",
+    "dev:client": "npm --workspace client run dev",
+    "dev": "npm --workspace client run dev",
+    "test": "npm --workspace server run test",
+    "build": "npm --workspace client run build"
+  }
+}
