@@ -10,7 +10,14 @@ import { quizRouter, progressRouter } from './routes/quiz.js';
 export function createApp() {
   const app = express();
   app.use(helmet());
-  app.use(cors({ origin: config.clientOrigin }));
+  app.use(cors({
+    origin: (origin, cb) => {
+      const allowed = !origin
+        || config.clientOrigin.includes(origin)
+        || /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin);
+      cb(null, allowed);
+    }
+  }));
   app.use(express.json({ limit: '1mb' }));
   app.use(generalLimiter);
   app.get('/health', (req, res) => res.json({ ok: true }));
